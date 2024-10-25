@@ -12,7 +12,7 @@ const ListEmployeeComponent = () => {
     useEffect(()=>{
         getAllEmployee();
     }, [])
-
+    
     function getAllEmployee() {
         listEmployees().then((response) =>{
             setEmployees(response.data);
@@ -21,9 +21,9 @@ const ListEmployeeComponent = () => {
         });
         
     }
+
     function addNewEmployee(){
         navigator('/add-employee')
-
     }
     function updateEmployee(id){
         navigator(`/edit-employee/${id}`)
@@ -36,7 +36,6 @@ const ListEmployeeComponent = () => {
 
         }).catch(error => {
             console.error(error);
-
         })
     }
 
@@ -44,14 +43,16 @@ const ListEmployeeComponent = () => {
     <div className='container'>
 
         <h2 className='text-center'>List of Employees</h2>
+        <div className='Adbtn'> 
         <button className='btn btn-primary mb-2' onClick={addNewEmployee}>Add Employee</button>
+        </div>
         <table className='table table-striped table-bordered'>
             <thead>
-                <tr>
-                    <th>Employee Id</th>
-                    <th>Employee First Name</th>
-                    <th>Employee Last Name</th>
-                    <th>Employee Email Id</th>
+                <tr className='text-center'>
+                    <th>Emp Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>mail Id</th>
                     {/* <th>Password</th> */}
                     <th>Actions</th>
                 </tr>
@@ -65,7 +66,7 @@ const ListEmployeeComponent = () => {
                             <td>{employee.lastName}</td>
                             <td>{employee.email}</td>
                             {/* <td>{employee.password}</td> */}
-                            <td>
+                            <td className='text-center'>
                                 <button className='btn btn-info' onClick={() => updateEmployee(employee.id)}>Update</button>
                                 <button className='btn btn-danger' onClick={() => removeEmployee(employee.id)}
                                     style={{marginLeft: '10px'}}

@@ -3,12 +3,14 @@ import React from 'react'
 const HeaderComponent = () => {
   return (
     <div>
-        <header>
-            <nav className='navbar navbar-dark bg-primary'>
-            <a className="navbar-brand" href="https://www.google"><h3>Google</h3>Employee Management System</a>
+      <header>
+        <div className='name'>
+          <nav className="navbar navbar-dark bg-dark">
+          <a className="ibmhead" href='http://wwww.DataStore'><h2>DataStore</h2></a>
+</nav>
 
-            </nav>
-        </header>
+        </div>
+      </header>
     </div>
   )
 }

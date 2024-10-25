@@ -3,32 +3,34 @@ import EmployeeComponent from './components/EmployeeComponent'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
 import ListEmployeeComponent from './components/ListEmployeeComponent'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './components/Login'
+
 
 function App() {
 
 
   return (
     <>
-    <BrowserRouter>
-       <HeaderComponent/>
+      <BrowserRouter>
 
-       <Routes>
-        {/* // http://localhost:3000 */}
-        <Route path='/' element = { <ListEmployeeComponent />}></Route>
 
-        {/* // http://localhost:3000/employees */}
-        <Route path='/employees' element = { <ListEmployeeComponent />}></Route>
+        <Routes>
+          {/* // http://localhost:3000 */}
+          {/* <Route path='/' element = { <ListEmployeeComponent />}></Route> */}
 
-        {/* // http://localhost:3000/add-employees */}
-        <Route path='/add-employee' element = { <EmployeeComponent />}></Route>
+          <Route path='/employees' element={<><HeaderComponent /><ListEmployeeComponent /><FooterComponent /></>}></Route>
 
-        {/* // http://localhost:3000/edit-employees/1 */}
-        <Route path='/edit-employee/:id' element = { <EmployeeComponent />}></Route>
-       </Routes>
+          <Route path='/add-employee' element={<><HeaderComponent /><EmployeeComponent /></>}></Route>
 
-       <FooterComponent/>
-       </BrowserRouter>
+          <Route path='/edit-employee/:id' element={<><HeaderComponent /><EmployeeComponent /> </>}></Route>
+
+          <Route path="/" element={<Login />} />
+
+        </Routes>
+
+
+      </BrowserRouter>
     </>
   )
 }
